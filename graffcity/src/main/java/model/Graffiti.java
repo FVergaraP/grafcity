@@ -15,9 +15,9 @@ import java.util.List;
 
 @NamedQueries({
 	@NamedQuery(name="Graffiti.findAll", query="SELECT a FROM Graffiti a"),
-	@NamedQuery(name="Graffiti.findById", query="SELECT a FROM Graffiti a" + "WHERE a.id_graffiti = ?1"),
+	/*@NamedQuery(name="Graffiti.findById", query="SELECT a FROM Graffiti a" + "WHERE a.id_graffiti = ?1"),
 	//a.id_graffiti ='1'"
-	
+*/	
 	
 })
 
@@ -121,7 +121,7 @@ public class Graffiti implements Serializable {
 		return this.linkFoto;
 	}
 
-	public void setAutorId(String linkFoto) {
+	public void setLinkFoto(String linkFoto) {
 		this.linkFoto = linkFoto;
 	}
 	

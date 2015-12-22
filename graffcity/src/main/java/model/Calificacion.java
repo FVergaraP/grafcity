@@ -60,13 +60,13 @@ public class Calificacion implements Serializable{
 		this.puntuacion = puntuacion;
 	}
 	
-	public Graffiti getGraffiti() {
+/*	public Graffiti getGraffiti() {
 		return graffiti;
 	}
 
 	public void setGraffiti(Graffiti graffiti) {
 		this.graffiti = graffiti;
-	}
+	}*/
 	
 	
 }

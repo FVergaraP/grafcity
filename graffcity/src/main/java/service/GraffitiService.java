@@ -29,16 +29,16 @@ public class GraffitiService {
 	@EJB 
 	GraffitiFacade graffitiFacadeEJB;
 	
-	@PersistenceContext
+	/*@PersistenceContext
 	private EntityManager em;
 	
 	//protected EntityManager em;
 	
-	/*public GraffitiService(EntityManager em){
+	public GraffitiService(EntityManager em){
 		this.em = em;
-	}*/
+	}
 	
-	/*Query q = em.createNamedQuery("Graffiti.findById");
+	Query q = em.createNamedQuery("Graffiti.findById");
 	List<Graffiti> graffities = q.getResultList();*/
 	
 		
@@ -46,6 +46,13 @@ public class GraffitiService {
 	
 	
 	@GET
+	@Produces({"application/xml", "application/json"})
+	public List<Graffiti> findAll(){
+		return graffitiFacadeEJB.findAll();
+	}
+	
+	
+/*	@GET
 	@Path("funciono")
 	@Produces({"application/xml", "application/json"})
 	public List<Graffiti> findAll(){
@@ -53,7 +60,7 @@ public class GraffitiService {
 		q.setParameter("id", 1);
 		List<Graffiti> graffities = q.getResultList();
 		return graffities;
-	}
+	}*/
 	
 	@GET
     @Path("{id}")
