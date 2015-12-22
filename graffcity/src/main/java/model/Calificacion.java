@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name="CALIFICACION")
+@Table(name="calificacion")
 @NamedQuery(name="Calificacion.findAll", query="SELECT a FROM Calificacion a")
 public class Calificacion implements Serializable{
 	

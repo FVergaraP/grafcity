@@ -11,13 +11,14 @@ import java.util.List;
 
 
 @Entity
-@Table(name="GRAFFITI")
+@Table(name="graffiti")
 
 @NamedQueries({
 	@NamedQuery(name="Graffiti.findAll", query="SELECT a FROM Graffiti a"),
-	/*@NamedQuery(name="Graffiti.findById", query="SELECT a FROM Graffiti a" + "WHERE a.id_graffiti = ?1"),
+	@NamedQuery(name="Graffiti.findByUserId", query="SELECT a FROM Graffiti a WHERE a.autorId = :autorId"),
+	@NamedQuery(name="Graffiti.findByGPS", query="SELECT a FROM Graffiti a WHERE a.latitud > :latitudAbajo AND a.latitud < :latitudArriba AND a.longitud > :longitudAbajo AND a.longitud < :longitudArriba "),
 	//a.id_graffiti ='1'"
-*/	
+
 	
 })
 
@@ -56,7 +57,10 @@ public class Graffiti implements Serializable {
 	private float longitud;
 	
 	@Column(name="fecha_subida", nullable=false)
-	private Date fechaSubida;
+	private Timestamp fechaSubida;
+	
+	@Column(name="revision", nullable=false)
+	private boolean revision;
 	
 	
 	
@@ -149,12 +153,20 @@ public class Graffiti implements Serializable {
 		this.longitud = longitud;
 	}
 	
-	public Date getFechaSubida(){
+	public Timestamp getFechaSubida(){
 		return this.fechaSubida;
 	}
 	
-	public void setFechaSubida(Date fechaSubida){
+	public void setFechaSubida(Timestamp fechaSubida){
 		this.fechaSubida = fechaSubida;
+	}
+	
+	public boolean getRevision(){
+		return this.revision;
+	}
+	
+	public void setRevision(boolean revision){
+		this.revision = revision;
 	}
 	
 	

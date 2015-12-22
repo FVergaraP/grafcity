@@ -1,5 +1,6 @@
 package service;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -16,6 +17,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+
+
 
 import facade.GraffitiFacade;
 import facade.CalificacionFacade;
@@ -29,18 +37,6 @@ public class GraffitiService {
 	@EJB 
 	GraffitiFacade graffitiFacadeEJB;
 	
-	/*@PersistenceContext
-	private EntityManager em;
-	
-	//protected EntityManager em;
-	
-	public GraffitiService(EntityManager em){
-		this.em = em;
-	}
-	
-	Query q = em.createNamedQuery("Graffiti.findById");
-	List<Graffiti> graffities = q.getResultList();*/
-	
 		
 	Logger logger = Logger.getLogger(GraffitiService.class.getName());
 	
@@ -52,16 +48,6 @@ public class GraffitiService {
 	}
 	
 	
-/*	@GET
-	@Path("funciono")
-	@Produces({"application/xml", "application/json"})
-	public List<Graffiti> findAll(){
-		Query q = em.createNamedQuery("Graffiti.findById");
-		q.setParameter("id", 1);
-		List<Graffiti> graffities = q.getResultList();
-		return graffities;
-	}*/
-	
 	@GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
@@ -69,6 +55,26 @@ public class GraffitiService {
         return graffitiFacadeEJB.find(id);
     }
 	
+	//GET POR COORDENADAS 
+	//SE BUSCA /GPS?latitud=13131&longitud=11212
+	//Se considera un cuadrante de 1km cuadrados aprox 
+	@GET
+	@Path("/GPS")
+	@Produces({"application/xml", "application/json"})
+	public List<Graffiti> findForGPS(
+			@QueryParam("longitud") float longitud,
+			@QueryParam("latitud") float latitud){
+		return graffitiFacadeEJB.findGraffitisGPS(latitud, longitud);
+	}
+	
+	//GET DE PRUEBA
+	
+	@GET
+    @Path("funciono/{id}")
+    @Produces({"application/xml", "application/json"})
+    public List<Graffiti> probandoooo(@PathParam("id") Integer id) {
+        return graffitiFacadeEJB.entregarGraffitis(id);
+    }
 	
 	
 	
@@ -122,6 +128,6 @@ public class GraffitiService {
     public void edit(@PathParam("id") Integer id, Graffiti entity) {
     	entity.setGraffitiId(id.intValue());
         graffitiFacadeEJB.edit(entity);
-    }
+    }  
 
 }

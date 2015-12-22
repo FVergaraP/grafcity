@@ -26,11 +26,34 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		
 		/*Query q = em.createNamedQuery("Graffiti.findById",Graffiti.class);
 		
-		//q.setParameter("id", 1);
+		q.setParameter("graffitiId", 1);
 		
 		List<Graffiti> graffities = q.getResultList();*/
 		
 		return this.em;
 	}
+	
+	public List<Graffiti> entregarGraffitis(Integer id){
+		Query q = em.createNamedQuery("Graffiti.findByUserId", Graffiti.class);
+		q.setParameter("autorId", id);
+		List<Graffiti> graffities = q.getResultList();
+		return graffities;
+		
+	}
+	//Funcion para buscar por GPS, creo la Query, Seteo Parametros, Ejecuto Query y Guardo resultado
+	//Considerar que 1 grado es 110km, por ende es un cuadrante de 1km por lado mas menos.
+	public List<Graffiti> findGraffitisGPS(float lat, float lon){
+		Query q = em.createNamedQuery("Graffiti.findByGPS", Graffiti.class);
+		q.setParameter("longitudAbajo", (lon-0.005));
+		q.setParameter("longitudArriba", (lon+0.005));
+		q.setParameter("latitudAbajo", (lat-0.005));
+		q.setParameter("latitudArriba", (lon+0.005));
+		List<Graffiti> graffities = q.getResultList();
+		return graffities;
+	}
+	
+	
+	
+	
 
 }
