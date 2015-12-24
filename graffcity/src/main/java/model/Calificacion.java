@@ -12,7 +12,16 @@ import java.util.List;
 
 @Entity
 @Table(name="calificacion")
-@NamedQuery(name="Calificacion.findAll", query="SELECT a FROM Calificacion a")
+
+@NamedQueries({
+	@NamedQuery(name="Calificacion.findAll", query="SELECT a FROM Calificacion a"),
+	@NamedQuery(name="Calificacion.findTodos", query="SELECT c FROM Calificacion c"),
+	/*@NamedQuery(name="Calificacion.findBest", query="SELECT a.graffitiId FROM Graffiti a GROUP BY a.graffitiId ORDER BY a.puntuacion"),*/
+})
+
+
+
+
 public class Calificacion implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -28,9 +37,9 @@ public class Calificacion implements Serializable{
 	@Column(name="puntuacion", nullable=false)
 	private int puntuacion;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@PrimaryKeyJoinColumn(name="id_graffiti", referencedColumnName = "id_graffiti")
-	private Graffiti graffiti;
+	private Graffiti graffiti;*/
 	
 	public Calificacion() {
 	}

@@ -67,55 +67,16 @@ public class GraffitiService {
 		return graffitiFacadeEJB.findGraffitisGPS(latitud, longitud);
 	}
 	
-	//GET DE PRUEBA
-	
+	//GET DE PRUEBA	
 	@GET
-    @Path("funciono/{id}")
+    @Path("FuncionoQuery")
     @Produces({"application/xml", "application/json"})
-    public List<Graffiti> probandoooo(@PathParam("id") Integer id) {
-        return graffitiFacadeEJB.entregarGraffitis(id);
-    }
+    public List<Graffiti> probandoooo() {
+        return graffitiFacadeEJB.probandoQuery();
+    }	
+	//EL GET DE ARRIBA ES DE PRUEBA DE FUNCIONES VARIAS
 	
-	
-	
-	@GET
-	@Path("GPS/{longitud}/{latitud}")
-	@Produces({"application/xml", "application/json"})
-	public List<Graffiti> findAllGPS(@PathParam("longitud") Float longitud, @PathParam("latitud") Float latitud){
-		List<Graffiti> GPS = new ArrayList<Graffiti>();
-		GPS = graffitiFacadeEJB.findAll();
-		for (Graffiti Graffiti : GPS){
-			float latGraffiti = Graffiti.getLatitud();
-			float lonGraffiti = Graffiti.getLongitud();
-			if (latGraffiti<(latitud-5) && latGraffiti>(latitud+5)){
-				if (lonGraffiti<(longitud-5) && lonGraffiti>(longitud+5)){
-					GPS.remove(Graffiti);
-				}
-				
-			}
-			
-		}
-		return GPS;
-	}
-	
-	@GET
-	@Path("GPS/{id}")
-	@Produces({"application/xml", "application/json"})
-	public List<Graffiti> tomarPorId(@PathParam("id") Integer id){
-		List<Graffiti> GPS = new ArrayList<Graffiti>();
-		GPS = graffitiFacadeEJB.findAll();
-		for (Graffiti Graffiti : GPS){
-			int IdGraffiti = Graffiti.getGraffitiId();
-			if (IdGraffiti==id){
-				GPS.remove(Graffiti);
-				
-			}
-			
-		}
-		return GPS;
-	}
-	
-	
+		
 	@POST
     @Consumes({"application/xml", "application/json"})
     public void create(Graffiti entity) {

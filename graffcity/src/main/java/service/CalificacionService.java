@@ -11,11 +11,13 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import com.mysql.jdbc.Statement;
 
 import facade.CalificacionFacade;
 import model.Calificacion;
+import model.Graffiti;
 
 
 @Path("/calificacion")
@@ -40,6 +42,14 @@ public class CalificacionService {
         return calificacionFacadeEJB.find(id);
     }
 	
+	//Funcion GET para obtener las mejores calificaciones (promedio)Aun no esta bien del todo
+	@GET
+    @Path("FuncionoQuery")
+    @Produces({"application/xml", "application/json"})
+    public List<Calificacion> findBest() {
+        return calificacionFacadeEJB.findBestByCalif();
+    }	
+	
 	
 	
 	
@@ -55,6 +65,19 @@ public class CalificacionService {
     public void edit(@PathParam("id") Integer id, Calificacion entity) {
     	entity.setPuntuacion(id.intValue());
     	calificacionFacadeEJB.edit(entity);
+    }
+    
+    //Para poder editar una calificacion, debe ser con idusuario e idgraffiti obviamente 
+    //No cuestiono porque pongo get pero asi me funciona
+    //formato: /calificacion/edit?user=1&graf=1&nota=2
+    @GET
+    @Path("/edit")
+    @Consumes({"application/xml", "application/json"})
+    public void edicion(
+    		@QueryParam("user") int user,
+    		@QueryParam("graf") int graf,
+    		@QueryParam("nota") int nota) {
+    	calificacionFacadeEJB.editCalificacion(nota, user,  graf);
     }
 
 }

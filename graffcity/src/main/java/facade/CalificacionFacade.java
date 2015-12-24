@@ -22,5 +22,11 @@ public interface CalificacionFacade {
 	public List<Calificacion> findRange(int[] range);
 
 	public int count();
-
+	
+	//Funciones extras
+	
+	//Para obtener los mejores
+	public List<Calificacion> findBestByCalif();
+	
+	public void editCalificacion(int nota, int user, int graf);
 }

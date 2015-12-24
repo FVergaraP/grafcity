@@ -6,6 +6,10 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import facade.AbstractFacade;
 import facade.GraffitiFacade;
@@ -50,6 +54,23 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		q.setParameter("latitudArriba", (lon+0.005));
 		List<Graffiti> graffities = q.getResultList();
 		return graffities;
+	}
+	
+	//De aqui para abajo probando funciones varias
+	
+	public List<Graffiti> probandoQuery(){
+		 		
+		 		
+		 		 CriteriaBuilder cb = em.getCriteriaBuilder();
+		 		 
+		 		  CriteriaQuery<Graffiti> q = cb.createQuery(Graffiti.class);
+		 		  Root<Graffiti> c = q.from(Graffiti.class);
+		 		  q.select(c);
+		 		  q.orderBy(cb.asc(c.get("comunaId")));		 		  
+		 		  TypedQuery<Graffiti> query = em.createQuery(q);
+		 		  List<Graffiti> results = query.getResultList();
+		
+		return results;
 	}
 	
 	

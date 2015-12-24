@@ -29,4 +29,7 @@ public interface GraffitiFacade {
 	//Funcion para buscar por Coordenadas, debe recibir la latitud y longitud ( solo hasta decimales )
 	public List<Graffiti> findGraffitisGPS(float lat, float lon);
 	
+	//De aqui pa abajo funciones varias de pruebas
+	public List<Graffiti> probandoQuery();
+	
 }
