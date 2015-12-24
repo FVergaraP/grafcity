@@ -27,10 +27,10 @@ public class Calificacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="id_graffiti", unique=true, nullable=false)
+	@Column(name="id_graffiti", nullable=false)
 	private int graffitiId;
 	
-	
+	@Id
 	@Column(name="id_usuario", nullable=false)
 	private int usuarioId;
 	
