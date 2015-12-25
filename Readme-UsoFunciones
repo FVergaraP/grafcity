@@ -43,12 +43,22 @@ user es el id del usuario, graf es el id del graffiti y nota es la puntuacion nu
 
 ***Devolver Graffitis por autor(graffitiService)***
 
-Se necesita solo el id del autor, que se ingresa: 
+Se necesita solo el nick del autor, que se ingresa: 
 Ej:
 
-/graffiti/autor?id=3
+/graffiti/autor?nick=juanin
 
-++++ACLARACION+++ Sobre esta funcion, voy a realizar unos ajustes para ver dos opciones: o crear una query para obtener el id a partir del nickname y este id pasarlo a esta funcion, o bien, intentar de implementar un query que directamente consulte por nick seria lo mejor pero a priori mas complicado xd.
+++++ACLARACION+++ YA NO ES CON ID LA BUSQUEDA DE GRAFFITIS DE AUTOR AHORA CON NICKNAME
 
-***Funcion validar(Proximo Push en un ratito mas)***
+***Funcion validar(AdministradorService)***
+
+Solo se necesita el id del graffiti que queremos validar, y supongo que sera como estar en la pagina 
+del graffiti con un boton (validar) y de ahi se saca el id (ver graffiti) y se cambia de false a true..
+
+COmo usar:
+Ej:
+
+/administrador/validar?id=3
+
+Donde el 3 es el que se cambia con el valor del id a validar.
 

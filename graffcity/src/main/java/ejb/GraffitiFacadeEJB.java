@@ -14,6 +14,8 @@ import javax.persistence.criteria.Root;
 import facade.AbstractFacade;
 import facade.GraffitiFacade;
 import model.Graffiti;
+import facade.UsuarioFacade;
+import model.Usuario;
 
 @Stateless
 public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements GraffitiFacade {

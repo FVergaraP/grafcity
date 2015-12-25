@@ -11,6 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import com.mysql.jdbc.Statement;
 
@@ -41,6 +42,13 @@ public class AdministradorService {
         return administradorFacadeEJB.find(id);
     }
 	
+	//ValidarGraffiti
+	@GET
+    @Path("/validar")
+    @Produces({"application/xml", "application/json"})
+    public void validarGraff(@QueryParam("id") Integer id) {
+        administradorFacadeEJB.validarGraffiti(id);
+    }
 		
 	@POST
     @Consumes({"application/xml", "application/json"})

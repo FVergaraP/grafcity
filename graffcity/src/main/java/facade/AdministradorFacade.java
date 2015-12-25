@@ -23,4 +23,6 @@ public interface AdministradorFacade {
 
 	public int count();
 
+	//ValidarGraffiti
+	public void validarGraffiti(Integer id);
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -13,6 +14,8 @@ import javax.persistence.criteria.Root;
 import facade.AbstractFacade;
 import facade.AdministradorFacade;
 import model.Administrador;
+import facade.GraffitiFacade;
+import model.Graffiti;
 
 
 @Stateless
@@ -32,6 +35,13 @@ public class AdministradorFacadeEJB extends AbstractFacade<Administrador> implem
 	
 	//Consultas y Funciones extras para extraer desde la BD
 	
+	//Funcion para que el admin pueda validar un graffiti, no pide parametros ni devuelve nada
+	public void validarGraffiti(Integer id){
+		Query q = em.createQuery("UPDATE Graffiti g SET g.revision =:revision WHERE g.graffitiId = :graffitiId");
+		q.setParameter("revision",true);
+		int updateCount = q.setParameter("graffitiId", id ).executeUpdate();
+		
+	}
 	
 }
 

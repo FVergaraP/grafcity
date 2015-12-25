@@ -26,9 +26,11 @@ import javax.ws.rs.core.Response;
 
 
 import facade.GraffitiFacade;
+import facade.UsuarioFacade;
 import facade.CalificacionFacade;
 import model.Calificacion;
 import model.Graffiti;
+import model.Usuario;
 
 
 @Path("/graffiti")
@@ -36,7 +38,8 @@ public class GraffitiService {
 	
 	@EJB 
 	GraffitiFacade graffitiFacadeEJB;
-	
+	@EJB
+	UsuarioFacade usuarioFacadeEJB;
 		
 	Logger logger = Logger.getLogger(GraffitiService.class.getName());
 	
@@ -72,7 +75,8 @@ public class GraffitiService {
 	@Path("/autor")
 	@Produces({"application/xml", "application/json"})
 	public List<Graffiti> findForId(
-			@QueryParam("id") Integer id){
+			@QueryParam("nick") String nickname){
+		Integer id = usuarioFacadeEJB.obtenerId(nickname);
 		return graffitiFacadeEJB.findGraffitisAutor(id);
 	}
 	

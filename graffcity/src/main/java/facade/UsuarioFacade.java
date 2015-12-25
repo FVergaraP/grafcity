@@ -22,6 +22,8 @@ public interface UsuarioFacade {
 	public List<Usuario> findRange(int[] range);
 
 	public int count();
+	
+	public int obtenerId(String nickname);
 
 }
 
