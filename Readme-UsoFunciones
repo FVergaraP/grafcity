@@ -1,0 +1,54 @@
+***Subir nuevo graffiti (graffitiService)***
+
+Para subir graffiti se debe ingresar:
+
+- autorId el cual deberiamos conseguirlo luego cuando este implementado registro/login
+- comunaId tendria que ser un combobox con las ciudades y sus respectivos Id
+- nombreGraffiti un string con el nombre que se le quiere dar (max 100)
+- linkFoto el link que se obtiene al momento de conectar (angular/android) con el servidor proveedor de subir foto (en la conversacion explique esto).
+- descripcionGraf aqui va a desripcion string max 2000
+- latitud/longitud coordenadas obtenidas a partir de gps android.
+
+Los otros datos como n_compartidas, revision, fecha e id se generan automaticos en la base datos o por
+defecto.
+
+***Devolver graffitis cercanos a coordenadas(GraffitiService)***:
+
+Aqui se deben pasar latitud y longitud y devuelve a todos dentro del cuadrante.
+
+Ej:
+
+graffiti/GPS?latitud=13131&longitud=11212
+
+latitud y longitud son los datos que varian y son los que se deben ingresar, y retorna lo cercano a esos, retorna lista de graffitis.
+
+***Crear valoracion***
+
+Se debe ingresar:
+
+-  puntuacion que es un entero (creo que deberia limitarse de 1 a 10)
+
+Sobre el usuarioId este deberia obtenerse automarico de la sesion y el graffitiId tb automatico
+a partir del graffiti que se esta viendo.
+
+***Poder editar valoracion(CalificacionService)***:
+
+Se necesitan los 3 datos y se deberian obtener de igual forma que con el crear calificacion
+usuarioId a partir del inicio sesion y graffitiId a partir del que se esta viendo, como se ejecuta?:
+Ejemplo:
+
+/calificacion/edit?user=1&graf=1&nota=2
+
+user es el id del usuario, graf es el id del graffiti y nota es la puntuacion nueva que se quiere.
+
+***Devolver Graffitis por autor(graffitiService)***
+
+Se necesita solo el id del autor, que se ingresa: 
+Ej:
+
+/graffiti/autor?id=3
+
+++++ACLARACION+++ Sobre esta funcion, voy a realizar unos ajustes para ver dos opciones: o crear una query para obtener el id a partir del nickname y este id pasarlo a esta funcion, o bien, intentar de implementar un query que directamente consulte por nick seria lo mejor pero a priori mas complicado xd.
+
+***Funcion validar(Proximo Push en un ratito mas)***
+

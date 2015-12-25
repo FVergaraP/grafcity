@@ -67,6 +67,15 @@ public class GraffitiService {
 		return graffitiFacadeEJB.findGraffitisGPS(latitud, longitud);
 	}
 	
+	//GET POR AUTOR
+	@GET
+	@Path("/autor")
+	@Produces({"application/xml", "application/json"})
+	public List<Graffiti> findForId(
+			@QueryParam("id") Integer id){
+		return graffitiFacadeEJB.findGraffitisAutor(id);
+	}
+	
 	//GET DE PRUEBA	
 	@GET
     @Path("FuncionoQuery")
