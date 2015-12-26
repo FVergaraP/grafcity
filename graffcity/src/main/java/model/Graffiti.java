@@ -23,6 +23,15 @@ import java.util.List;
 	
 })
 
+@NamedStoredProcedureQuery(
+	    name = "ObtenerParametro",
+	    resultClasses = Integer.class,
+	    procedureName = "mostrar_AVG",
+	    parameters = {
+	        @StoredProcedureParameter(mode=ParameterMode.IN, name="graff_id", type=int.class)
+	    }
+	)
+
 @NamedQuery(name="Graffiti.findAll", query="SELECT a FROM Graffiti a")
 public class Graffiti implements Serializable {
 		

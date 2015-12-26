@@ -82,13 +82,17 @@ public class GraffitiService {
 	
 	//GET DE PRUEBA	
 	@GET
-    @Path("FuncionoQuery")
+    @Path("FuncionoProcedimietno")
     @Produces({"application/xml", "application/json"})
     public List<Graffiti> probandoooo() {
-        return graffitiFacadeEJB.probandoQuery();
+        graffitiFacadeEJB.llamarProcedimieno();
+        List<Graffiti> graffities = null;
+        return graffities;
     }	
 	//EL GET DE ARRIBA ES DE PRUEBA DE FUNCIONES VARIAS
 	
+	
+
 		
 	@POST
     @Consumes({"application/xml", "application/json"})

@@ -33,6 +33,8 @@ public interface GraffitiFacade {
 	//De aqui pa abajo funciones varias de pruebas
 	public List<Graffiti> probandoQuery();
 	
+	//Prueba del procedimiento
+	public void llamarProcedimieno();
 	
 	
 }

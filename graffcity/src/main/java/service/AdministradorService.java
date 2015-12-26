@@ -43,6 +43,8 @@ public class AdministradorService {
     }
 	
 	//ValidarGraffiti
+	//Forma: /administrador/validar?id=3
+	//solo se necesita el id del graffiti y no retorna nada
 	@GET
     @Path("/validar")
     @Produces({"application/xml", "application/json"})

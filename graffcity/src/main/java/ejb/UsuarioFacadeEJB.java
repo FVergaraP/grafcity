@@ -35,5 +35,23 @@ public class UsuarioFacadeEJB extends AbstractFacade<Usuario> implements Usuario
 		
 		return id;
 	}
+	
+	public boolean isAcountExists(String usuario, String password){
+    	Query q = em.createQuery("SELECT nick_name FROM usuarios WHERE nick_name="+usuario+" AND contrasena="+password+"");
+        if(q.equals(usuario))
+        	return true;
+        else
+        	return false;
+    }
+    
+    //Metodo para consultar si el email recibido ya esta registrado
+    public boolean isEmailRegistered(String email) {
+    	Query q = em.createQuery("SELECT email FROM email="+email+"");
+        if(q.equals(email))
+        	return true;
+        else
+        	return false;
+    }
+
 
 }

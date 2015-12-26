@@ -24,6 +24,10 @@ public interface UsuarioFacade {
 	public int count();
 	
 	public int obtenerId(String nickname);
+	
+	public boolean isAcountExists(String usuario, String password);
+	
+	public boolean isEmailRegistered(String email);
 
 }
 

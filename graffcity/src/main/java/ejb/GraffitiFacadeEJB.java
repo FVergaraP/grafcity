@@ -4,12 +4,16 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.StoredProcedureQuery;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
+import com.mysql.jdbc.CallableStatement;
 
 import facade.AbstractFacade;
 import facade.GraffitiFacade;
@@ -74,12 +78,20 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		 		  q.orderBy(cb.asc(c.get("comunaId")));		 		  
 		 		  TypedQuery<Graffiti> query = em.createQuery(q);
 		 		  List<Graffiti> results = query.getResultList();
-		
 		return results;
 	}
 	
-	
-	
+	//LLamar procedimiento
+	public void llamarProcedimieno(){
+		
+		StoredProcedureQuery SProcedure = em.createStoredProcedureQuery("mostrar_AVGcalif").registerStoredProcedureParameter(0,Integer.class, ParameterMode.IN);
+		
+		SProcedure.setParameter(0, 1);
+		SProcedure.execute();
+		float promedio = (float) SProcedure.getOutputParameterValue("promedio");
+				
+		
+	}
 	
 
 }

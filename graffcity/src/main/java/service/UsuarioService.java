@@ -36,12 +36,6 @@ public class UsuarioService {
         return usuarioFacadeEJB.find(id);
     }
 	
-	/*@GET
-    @Path("{id}/films")
-    @Produces({"application/xml", "application/json"})
-    public List<Film> find_films(@PathParam("id") Integer id) {
-        return actorFacadeEJB.find(id).sacarFilms();
-    }*/
 	
 	@POST
     @Consumes({"application/xml", "application/json"})
