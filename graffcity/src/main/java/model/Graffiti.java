@@ -152,7 +152,7 @@ public class Graffiti implements Serializable {
 		return this.latitud;
 	}
 	
-	public void setLatitud(float latitud){
+	public void setLatitud(double latitud){
 		this.latitud = latitud;
 	}
 	
@@ -160,7 +160,7 @@ public class Graffiti implements Serializable {
 		return this.longitud;
 	}
 	
-	public void setLongitud(float longitud){
+	public void setLongitud(double longitud){
 		this.longitud = longitud;
 	}
 	
