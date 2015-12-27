@@ -28,7 +28,8 @@ import java.util.List;
 	    resultClasses = Integer.class,
 	    procedureName = "mostrar_AVG",
 	    parameters = {
-	        @StoredProcedureParameter(mode=ParameterMode.IN, name="graff_id", type=int.class)
+	        @StoredProcedureParameter(mode=ParameterMode.IN, name="graff_id", type=int.class),
+	        @StoredProcedureParameter(mode=ParameterMode.OUT, name="promedio", type=float.class)
 	    }
 	)
 
@@ -61,10 +62,10 @@ public class Graffiti implements Serializable {
 	private String descripcionGraf;
 	
 	@Column(name="latitud", nullable=false)
-	private float latitud;
+	private double latitud;
 	
 	@Column(name="longitud", nullable=false)
-	private float longitud;
+	private double longitud;
 	
 	@Column(name="fecha_subida", nullable=false)
 	private Timestamp fechaSubida;
@@ -147,7 +148,7 @@ public class Graffiti implements Serializable {
 		this.descripcionGraf = descripcionGraf;
 	}
 	
-	public float getLatitud(){
+	public double getLatitud(){
 		return this.latitud;
 	}
 	
@@ -155,7 +156,7 @@ public class Graffiti implements Serializable {
 		this.latitud = latitud;
 	}
 	
-	public float getLongitud(){
+	public double getLongitud(){
 		return this.longitud;
 	}
 	

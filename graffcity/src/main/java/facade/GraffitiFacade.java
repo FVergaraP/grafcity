@@ -25,7 +25,7 @@ public interface GraffitiFacade {
 	public int count();
 	
 	//Funcion para buscar por Coordenadas, debe recibir la latitud y longitud ( solo hasta decimales )
-	public List<Graffiti> findGraffitisGPS(float lat, float lon);
+	public List<Graffiti> findGraffitisGPS(double lat, double lon);
 	
 	//Funcion para buscar todos los graffitis de un autor
 	public List<Graffiti> findGraffitisAutor (Integer id);
@@ -34,7 +34,7 @@ public interface GraffitiFacade {
 	public List<Graffiti> probandoQuery();
 	
 	//Prueba del procedimiento
-	public void llamarProcedimieno();
+	public void actualizarPromedio();
 	
 	
 }

@@ -46,7 +46,7 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 	
 	//Funcion para buscar por GPS, creo la Query, Seteo Parametros, Ejecuto Query y Guardo resultado
 	//Considerar que 1 grado es 110km, por ende es un cuadrante de 1km por lado mas menos.
-	public List<Graffiti> findGraffitisGPS(float lat, float lon){
+	public List<Graffiti> findGraffitisGPS(double lat, double lon){
 		Query q = em.createNamedQuery("Graffiti.findByGPS", Graffiti.class);
 		q.setParameter("longitudAbajo", (lon-0.005));
 		q.setParameter("longitudArriba", (lon+0.005));
@@ -81,14 +81,18 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		return results;
 	}
 	
-	//LLamar procedimiento
-	public void llamarProcedimieno(){
+	//Actualizar Promedio tras agregar calificacion
+	public void actualizarPromedio(){
 		
-		StoredProcedureQuery SProcedure = em.createStoredProcedureQuery("mostrar_AVGcalif").registerStoredProcedureParameter(0,Integer.class, ParameterMode.IN);
+		StoredProcedureQuery SProcedure = em.createStoredProcedureQuery("mostrar_AVGcalif").
+				registerStoredProcedureParameter(1,int.class, ParameterMode.IN);
+				
 		
-		SProcedure.setParameter(0, 1);
+		SProcedure.setParameter(1, 1);
 		SProcedure.execute();
-		float promedio = (float) SProcedure.getOutputParameterValue("promedio");
+		
+		
+		
 				
 		
 	}

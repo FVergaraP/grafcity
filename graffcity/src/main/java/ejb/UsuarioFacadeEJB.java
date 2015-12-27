@@ -1,5 +1,7 @@
 package ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +29,14 @@ public class UsuarioFacadeEJB extends AbstractFacade<Usuario> implements Usuario
 	
 	//Funciones extras
 	
+	public List<Usuario> muestraLogin(String usuario, String clave){
+		Query q = em.createNamedQuery("VerificaUsuario", Usuario.class);
+		q.setParameter("usuario", usuario);
+		q.setParameter("password", clave);
+		List<Usuario> usuarios = q.getResultList();
+		return usuarios;
+	}
+	
 	public int obtenerId(String nickname){
 		Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.nickname =:nickname");
 		q.setParameter("nickname","juanin");
@@ -36,22 +46,22 @@ public class UsuarioFacadeEJB extends AbstractFacade<Usuario> implements Usuario
 		return id;
 	}
 	
-	public boolean isAcountExists(String usuario, String password){
-    	Query q = em.createQuery("SELECT nick_name FROM usuarios WHERE nick_name="+usuario+" AND contrasena="+password+"");
-        if(q.equals(usuario))
-        	return true;
-        else
-        	return false;
-    }
-    
-    //Metodo para consultar si el email recibido ya esta registrado
-    public boolean isEmailRegistered(String email) {
-    	Query q = em.createQuery("SELECT email FROM email="+email+"");
-        if(q.equals(email))
-        	return true;
-        else
-        	return false;
-    }
+//	public boolean isAcountExists(String usuario, String password){
+//    	Query q = em.createQuery("SELECT nick_name FROM usuarios WHERE nick_name="+usuario+" AND contrasena="+password+"");
+//        if(q.equals(usuario))
+//        	return true;
+//        else
+//        	return false;
+//    }
+//    
+//    //Metodo para consultar si el email recibido ya esta registrado
+//    public boolean isEmailRegistered(String email) {
+//    	Query q = em.createQuery("SELECT email FROM email="+email+"");
+//        if(q.equals(email))
+//        	return true;
+//        else
+//        	return false;
+//    }
 
 
 }

@@ -37,6 +37,15 @@ public class UsuarioService {
     }
 	
 	
+	@GET
+    @Path("login/{usuario}/{password}")
+    @Produces({"application/xml", "application/json"})
+    public List<Usuario> muestraLogin(
+    		@PathParam("usuario") String usuario, 
+    		@PathParam("password") String password){
+    	return usuarioFacadeEJB.muestraLogin(usuario, password);
+    }
+	
 	@POST
     @Consumes({"application/xml", "application/json"})
     public void create(Usuario entity) {

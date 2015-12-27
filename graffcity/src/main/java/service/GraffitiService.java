@@ -65,8 +65,8 @@ public class GraffitiService {
 	@Path("/GPS")
 	@Produces({"application/xml", "application/json"})
 	public List<Graffiti> findForGPS(
-			@QueryParam("longitud") float longitud,
-			@QueryParam("latitud") float latitud){
+			@QueryParam("longitud") double longitud,
+			@QueryParam("latitud") double latitud){
 		return graffitiFacadeEJB.findGraffitisGPS(latitud, longitud);
 	}
 	
@@ -84,10 +84,9 @@ public class GraffitiService {
 	@GET
     @Path("FuncionoProcedimietno")
     @Produces({"application/xml", "application/json"})
-    public List<Graffiti> probandoooo() {
-        graffitiFacadeEJB.llamarProcedimieno();
-        List<Graffiti> graffities = null;
-        return graffities;
+    public void probandoooo() {
+      //  graffitiFacadeEJB.llamarProcedimieno();
+        
     }	
 	//EL GET DE ARRIBA ES DE PRUEBA DE FUNCIONES VARIAS
 	
