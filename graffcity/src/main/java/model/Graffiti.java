@@ -16,7 +16,7 @@ import java.util.List;
 @NamedQueries({
 	@NamedQuery(name="Graffiti.findAll", query="SELECT a FROM Graffiti a"),
 	@NamedQuery(name="Graffiti.findByUserId", query="SELECT a FROM Graffiti a WHERE a.autorId = :autorId"),
-	@NamedQuery(name="Graffiti.findByGPS", query="SELECT a FROM Graffiti a WHERE a.latitud > :latitudAbajo AND a.latitud < :latitudArriba AND a.longitud > :longitudAbajo AND a.longitud < :longitudArriba "),
+	@NamedQuery(name="Graffiti.findByGPS", query="SELECT a FROM Graffiti a WHERE a.latitud > :latitudAbajo AND a.latitud < :latitudArriba AND a.longitud > :longitudAbajo AND a.longitud < :longitudArriba AND a.revision= :revision"),
 	
 	//a.id_graffiti ='1'"
 

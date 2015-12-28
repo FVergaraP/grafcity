@@ -52,6 +52,7 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		q.setParameter("longitudArriba", (lon+0.005));
 		q.setParameter("latitudAbajo", (lat-0.005));
 		q.setParameter("latitudArriba", (lat+0.005));
+		q.setParameter("revision", true);
 		List<Graffiti> graffities = q.getResultList();
 		return graffities;
 	}

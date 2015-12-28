@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -59,11 +60,16 @@ public class CalificacionFacadeEJB extends AbstractFacade<Calificacion> implemen
 	}
 	
 	public Calificacion existeCalificacion(int user, int graf){
-		Query q = em.createQuery("SELECT c FROM Calificacion c WHERE c.graffitiId = :graffitiId AND c.usuarioId = :usuarioId");
+		try{Query q = em.createQuery("SELECT c FROM Calificacion c WHERE c.graffitiId = :graffitiId AND c.usuarioId = :usuarioId");
 		q.setParameter("graffitiId", graf);
 		q.setParameter("usuarioId", user);
 		Calificacion calificacion = (Calificacion) q.getSingleResult();
-		return calificacion;
+		return calificacion;}
+		catch(NoResultException e) {
+			Calificacion calificacion = null;
+			return calificacion;
+			
+		}
 	}
 	
 
