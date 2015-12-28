@@ -28,8 +28,7 @@ import java.util.List;
 	    resultClasses = Integer.class,
 	    procedureName = "mostrar_AVG",
 	    parameters = {
-	        @StoredProcedureParameter(mode=ParameterMode.IN, name="graff_id", type=int.class),
-	        @StoredProcedureParameter(mode=ParameterMode.OUT, name="promedio", type=float.class)
+	        @StoredProcedureParameter(mode=ParameterMode.IN, name="graff_id", type=int.class)
 	    }
 	)
 

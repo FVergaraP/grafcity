@@ -84,9 +84,10 @@ public class GraffitiService {
 	@GET
     @Path("FuncionoProcedimietno")
     @Produces({"application/xml", "application/json"})
-    public void probandoooo() {
-      //  graffitiFacadeEJB.llamarProcedimieno();
-        
+    public List<Graffiti> probandoooo() {
+        graffitiFacadeEJB.llamarProcedimieno();
+        List<Graffiti> graffities = null;
+        return graffities;
     }	
 	//EL GET DE ARRIBA ES DE PRUEBA DE FUNCIONES VARIAS
 	

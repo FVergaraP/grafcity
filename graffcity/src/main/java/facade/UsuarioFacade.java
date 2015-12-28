@@ -26,6 +26,11 @@ public interface UsuarioFacade {
 	public int obtenerId(String nickname);
 	
 	public List<Usuario> muestraLogin(String usuario, String clave);
+	
+	public List<Usuario> existeNickname(String nickname);
+	
+	public List<Usuario> existeEmail(Usuario user);
+
 
 }
 

@@ -34,7 +34,7 @@ public interface GraffitiFacade {
 	public List<Graffiti> probandoQuery();
 	
 	//Prueba del procedimiento
-	public void actualizarPromedio();
+	public void llamarProcedimieno();
 	
 	
 }

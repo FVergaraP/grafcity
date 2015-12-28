@@ -81,18 +81,14 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		return results;
 	}
 	
-	//Actualizar Promedio tras agregar calificacion
-	public void actualizarPromedio(){
+	//LLamar procedimiento
+	public void llamarProcedimieno(){
 		
-		StoredProcedureQuery SProcedure = em.createStoredProcedureQuery("mostrar_AVGcalif").
-				registerStoredProcedureParameter(1,int.class, ParameterMode.IN);
-				
+		StoredProcedureQuery SProcedure = em.createStoredProcedureQuery("mostrar_AVGcalif").registerStoredProcedureParameter(0,Integer.class, ParameterMode.IN);
 		
-		SProcedure.setParameter(1, 1);
+		SProcedure.setParameter(0, 1);
 		SProcedure.execute();
-		
-		
-		
+		float promedio = (float) SProcedure.getOutputParameterValue("promedio");
 				
 		
 	}
