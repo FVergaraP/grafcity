@@ -52,7 +52,7 @@ public class UsuarioFacadeEJB extends AbstractFacade<Usuario> implements Usuario
 	
 	public int obtenerId(String nickname){
 		Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.nickname =:nickname");
-		q.setParameter("nickname","juanin");// juanin?? debería ser nickname po xD
+		q.setParameter("nickname","juanin");// juanin?? deberia ser nickname po xD
 		Usuario user = (Usuario) q.getSingleResult();
 		Integer id = user.getUsuarioId();
 		

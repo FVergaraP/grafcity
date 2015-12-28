@@ -79,6 +79,20 @@ public class CalificacionService {
     		@QueryParam("nota") int nota) {
     	calificacionFacadeEJB.editCalificacion(nota, user,  graf);
     }
+    
+    
+    ///Ver si existe alguna calificacion, si retorna null no existe, si retorna no null existe xd
+    //funciona igual que editar
+    //formato: /calificacion/existe?user1&graf=2
+    
+    @GET
+    @Path("/existe")
+    @Consumes({"application/xml", "application/json"})
+    public Calificacion existeCalif(
+    		@QueryParam("user") int user,
+    		@QueryParam("graf") int graf) {
+    	return calificacionFacadeEJB.existeCalificacion(user, graf);
+    }
 
 }
 

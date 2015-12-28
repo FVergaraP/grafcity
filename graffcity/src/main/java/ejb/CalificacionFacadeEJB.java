@@ -15,6 +15,7 @@ import facade.AbstractFacade;
 import facade.CalificacionFacade;
 import model.Calificacion;
 import model.Graffiti;
+import model.Usuario;
 
 @Stateless
 public class CalificacionFacadeEJB extends AbstractFacade<Calificacion> implements CalificacionFacade {
@@ -57,7 +58,13 @@ public class CalificacionFacadeEJB extends AbstractFacade<Calificacion> implemen
 		
 	}
 	
-	
+	public Calificacion existeCalificacion(int user, int graf){
+		Query q = em.createQuery("SELECT c FROM Calificacion c WHERE c.graffitiId = :graffitiId AND c.usuarioId = :usuarioId");
+		q.setParameter("graffitiId", graf);
+		q.setParameter("usuarioId", user);
+		Calificacion calificacion = (Calificacion) q.getSingleResult();
+		return calificacion;
+	}
 	
 
 }

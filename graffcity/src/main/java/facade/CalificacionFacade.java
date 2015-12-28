@@ -29,4 +29,6 @@ public interface CalificacionFacade {
 	public List<Calificacion> findBestByCalif();
 	
 	public void editCalificacion(int nota, int user, int graf);
+	
+	public Calificacion existeCalificacion(int user, int graf);
 }
