@@ -59,17 +59,12 @@ public class CalificacionFacadeEJB extends AbstractFacade<Calificacion> implemen
 		
 	}
 	
-	public Calificacion existeCalificacion(int user, int graf){
-		try{Query q = em.createQuery("SELECT c FROM Calificacion c WHERE c.graffitiId = :graffitiId AND c.usuarioId = :usuarioId");
+	public List<Calificacion> existeCalificacion(int user, int graf){
+		Query q = em.createQuery("SELECT c FROM Calificacion c WHERE c.graffitiId = :graffitiId AND c.usuarioId = :usuarioId");
 		q.setParameter("graffitiId", graf);
 		q.setParameter("usuarioId", user);
-		Calificacion calificacion = (Calificacion) q.getSingleResult();
-		return calificacion;}
-		catch(NoResultException e) {
-			Calificacion calificacion = null;
-			return calificacion;
-			
-		}
+		List<Calificacion> calificacion = q.getResultList();
+		return calificacion;
 	}
 	
 

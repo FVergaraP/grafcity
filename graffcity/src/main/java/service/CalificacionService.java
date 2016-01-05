@@ -88,7 +88,7 @@ public class CalificacionService {
     @GET
     @Path("/existe")
     @Consumes({"application/xml", "application/json"})
-    public Calificacion existeCalif(
+    public List<Calificacion> existeCalif(
     		@QueryParam("user") int user,
     		@QueryParam("graf") int graf) {
     	return calificacionFacadeEJB.existeCalificacion(user, graf);

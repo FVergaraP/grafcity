@@ -30,5 +30,5 @@ public interface CalificacionFacade {
 	
 	public void editCalificacion(int nota, int user, int graf);
 	
-	public Calificacion existeCalificacion(int user, int graf);
+	public List<Calificacion> existeCalificacion(int user, int graf);
 }
