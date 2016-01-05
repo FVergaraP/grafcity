@@ -43,12 +43,12 @@ user es el id del usuario, graf es el id del graffiti y nota es la puntuacion nu
 
 ***Devolver Graffitis por autor(graffitiService)***
 
-Se necesita solo el nick del autor, que se ingresa: 
+Se necesita solo el id del autor: 
 Ej:
 
-/graffiti/autor?nick=juanin
+/graffiti/autor?id=3
 
-++++ACLARACION+++ YA NO ES CON ID LA BUSQUEDA DE GRAFFITIS DE AUTOR AHORA CON NICKNAME
+
 
 ***Funcion validar(AdministradorService)***
 
@@ -61,4 +61,18 @@ Ej:
 /administrador/validar?id=3
 
 Donde el 3 es el que se cambia con el valor del id a validar.
+
+
+***Funcion RANGO DE GRAFFITIES (GRaffitiService)*****
+
+Se debe ingresar el limite inferior y superior del rango, y lo que retorna es todos los graffities que tengan la id en el rango, INCLUYENDO LOS LIMITES
+
+Como usar:
+
+/rango?first=2&last=5
+
+Esto devuelve el graffiti de id 2,3,4,5, SE INCLUYEN LOS LIMITES DADOS
+
+
+
 

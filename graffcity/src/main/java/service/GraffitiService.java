@@ -70,14 +70,29 @@ public class GraffitiService {
 		return graffitiFacadeEJB.findGraffitisGPS(latitud, longitud);
 	}
 	
-	//GET POR AUTOR
+	//GET POR ID AUTOR
+	//FORMATO: /autor?id=3
+	//devuelve una lista con los graffitis del autor de id 3
 	@GET
 	@Path("/autor")
 	@Produces({"application/xml", "application/json"})
 	public List<Graffiti> findForId(
-			@QueryParam("nick") String nickname){
-		Integer id = usuarioFacadeEJB.obtenerId(nickname);
+			@QueryParam("id") Integer id){
+		//Integer id = usuarioFacadeEJB.obtenerId(nickname);
 		return graffitiFacadeEJB.findGraffitisAutor(id);
+	}
+	
+	//GET RANGO GRAFFITIS
+	//Se debe ingresar limite inferior (first) y limite superior (last), devuelve ambos incluidos
+	//FORMATO: /rango?first=2&last=5
+	//Esto devuelve el graffiti de id 2,3,4,5, SE INCLUYEN LOS LIMITES DADOS
+	@GET
+	@Path("/rango")
+	@Produces({"application/xml", "application/json"})
+	public List<Graffiti> findForRango(
+			@QueryParam("first") Integer first,
+			@QueryParam("last") Integer last){
+		return graffitiFacadeEJB.findGraffitisRango(first, last);
 	}
 	
 	//GET DE PRUEBA	

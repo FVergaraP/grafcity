@@ -66,6 +66,15 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		return graffities;
 	}
 	
+	
+	public List<Graffiti> findGraffitisRango (Integer first, Integer last){
+		Query q = em.createNamedQuery("Graffiti.findRango", Graffiti.class);
+		q.setParameter("first", first);
+		q.setParameter("last", last);
+		List<Graffiti> graffities = q.getResultList();
+		return graffities;
+	}
+	
 	//De aqui para abajo probando funciones varias
 	
 	public List<Graffiti> probandoQuery(){

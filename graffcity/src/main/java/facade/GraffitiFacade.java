@@ -29,12 +29,17 @@ public interface GraffitiFacade {
 	
 	//Funcion para buscar todos los graffitis de un autor
 	public List<Graffiti> findGraffitisAutor (Integer id);
+	
+	//Funcion para obtener un intervalo de graffitis segun Id
+	public List<Graffiti> findGraffitisRango (Integer first, Integer last);
 		
 	//De aqui pa abajo funciones varias de pruebas
 	public List<Graffiti> probandoQuery();
 	
 	//Prueba del procedimiento
 	public void llamarProcedimieno();
+	
+	
 	
 	
 }
