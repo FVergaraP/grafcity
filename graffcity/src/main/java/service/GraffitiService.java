@@ -95,6 +95,18 @@ public class GraffitiService {
 		return graffitiFacadeEJB.findGraffitisRango(first, last);
 	}
 	
+	
+	//"GET" PARA DELETE
+	//SE NECESITA EL ID DEL GRAFFITI
+	@GET
+	@Path("/eliminar")
+    @Produces({"application/xml", "application/json"})
+    public void eliminarGraf(
+    		@QueryParam("id") Integer id) {
+       graffitiFacadeEJB.eliminarGraffiti(id);
+    }	
+	
+	
 	//GET DE PRUEBA	
 	@GET
     @Path("FuncionoProcedimietno")

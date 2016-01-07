@@ -91,6 +91,14 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		return results;
 	}
 	
+	//Eliminar un graffiti por id
+	public void eliminarGraffiti(Integer id){
+		Query q = em.createNamedQuery("Graffiti.deleteForId");
+		q.setParameter("graffitiId", id);
+		q.executeUpdate();	
+	}
+	
+	
 	//LLamar procedimiento
 	public void llamarProcedimieno(){
 		

@@ -32,7 +32,10 @@ public interface GraffitiFacade {
 	
 	//Funcion para obtener un intervalo de graffitis segun Id
 	public List<Graffiti> findGraffitisRango (Integer first, Integer last);
-		
+	
+	//Funcion para eliminar un graffiti por id
+	public void eliminarGraffiti(Integer id);
+	
 	//De aqui pa abajo funciones varias de pruebas
 	public List<Graffiti> probandoQuery();
 	

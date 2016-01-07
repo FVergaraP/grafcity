@@ -75,4 +75,16 @@ Esto devuelve el graffiti de id 2,3,4,5, SE INCLUYEN LOS LIMITES DADOS
 
 
 
+*****FUNCION ELIMINAR GRAFFITI(GraffitiService)*****
+
+Se debe ingresar el id del graffiti que se desea eliminar.
+
+No retorna nada la funcion (como para que sea un simple boton o lago asi).
+
+Como usar:
+
+/eliminar?id=6
+
+Eliminara el graffiti de id 6
+
 
