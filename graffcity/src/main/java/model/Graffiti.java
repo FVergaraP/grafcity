@@ -19,6 +19,7 @@ import java.util.List;
 	@NamedQuery(name="Graffiti.findByGPS", query="SELECT a FROM Graffiti a WHERE a.latitud > :latitudAbajo AND a.latitud < :latitudArriba AND a.longitud > :longitudAbajo AND a.longitud < :longitudArriba AND a.revision= :revision"),
 	@NamedQuery(name="Graffiti.findRango", query="SELECT a FROM Graffiti a WHERE a.graffitiId >= :first AND a.graffitiId <= :last"),
 	@NamedQuery(name="Graffiti.deleteForId", query="DELETE FROM Graffiti a WHERE a.graffitiId = :graffitiId"),
+	@NamedQuery(name="Graffiti.findByAvg", query="SELECT a FROM Graffiti a ORDER BY a.promedio DESC"),
 	
 	//a.id_graffiti ='1'"
 
@@ -56,8 +57,17 @@ public class Graffiti implements Serializable {
 	@Column(name="nombre_graffiti", nullable=false, length=100)
 	private String nombreGraffiti;
 	
-	@Column(name="link_foto", nullable=false, length=100)
-	private String linkFoto;
+	@Column(name="link_foto_1", nullable=false, length=100)
+	private String linkFoto1;
+	
+	@Column(name="link_foto_2", nullable=false, length=100)
+	private String linkFoto2;
+	
+	@Column(name="link_foto_3", nullable=false, length=100)
+	private String linkFoto3;
+	
+	@Column(name="link_foto_4", nullable=false, length=100)
+	private String linkFoto4;		
 	
 	@Column(name="descripcion_Graf", nullable=false, length=2000)
 	private String descripcionGraf;
@@ -73,6 +83,9 @@ public class Graffiti implements Serializable {
 	
 	@Column(name="revision", nullable=false)
 	private boolean revision;
+	
+	@Column(name="avg_calif", nullable=false)
+	private double promedio;
 	
 	
 	
@@ -133,12 +146,36 @@ public class Graffiti implements Serializable {
 		this.nombreGraffiti = nombreGraffiti;
 	}
 	
-	public String getLinkFoto() {
-		return this.linkFoto;
+	public String getLinkFoto1() {
+		return this.linkFoto1;
 	}
 
-	public void setLinkFoto(String linkFoto) {
-		this.linkFoto = linkFoto;
+	public void setLinkFoto1(String linkFoto1) {
+		this.linkFoto1 = linkFoto1;
+	}
+	
+	public String getLinkFoto2() {
+		return this.linkFoto2;
+	}
+
+	public void setLinkFoto2(String linkFoto2) {
+		this.linkFoto2 = linkFoto2;
+	}
+	
+	public String getLinkFoto3() {
+		return this.linkFoto3;
+	}
+
+	public void setLinkFoto3(String linkFoto3) {
+		this.linkFoto3 = linkFoto3;
+	}
+	
+	public String getLinkFoto4() {
+		return this.linkFoto4;
+	}
+
+	public void setLinkFoto4(String linkFoto4) {
+		this.linkFoto4 = linkFoto4;
 	}
 	
 	public String getDescripcionGraf(){
@@ -179,6 +216,14 @@ public class Graffiti implements Serializable {
 	
 	public void setRevision(boolean revision){
 		this.revision = revision;
+	}
+	
+	public double getPromedio(){
+		return this.promedio;
+	}
+	
+	public void setPromedio(double promedio){
+		this.promedio = promedio;
 	}
 	
 	

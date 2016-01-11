@@ -51,6 +51,16 @@ public class AdministradorService {
     public void validarGraff(@QueryParam("id") Integer id) {
         administradorFacadeEJB.validarGraffiti(id);
     }
+	
+	//BanearUsuario
+	//Forma: /administrador/banear?id=3
+	//Banea al usuario 3, no retorna nada.
+	@GET
+    @Path("/banear")
+    @Produces({"application/xml", "application/json"})
+    public void banearUsuario(@QueryParam("id") Integer id) {
+        administradorFacadeEJB.banearUser(id);
+    }
 		
 	@POST
     @Consumes({"application/xml", "application/json"})

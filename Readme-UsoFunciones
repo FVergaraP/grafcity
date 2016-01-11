@@ -88,3 +88,32 @@ Como usar:
 Eliminara el graffiti de id 6
 
 
+
+*****FUNCION BUSCAR TOP GRAFFITI(GraffitiService)*****
+
+Se debe ingresar la cantida de grafitis que se quiere obtener, top3 top10 etc etc
+
+Retorna una lista con la cantidad de graffities seleccionados
+
+Como usar:
+
+/top?cant=6
+
+Esto nos dara los TOP6, los 6 mejores graffities
+
+
+*****FUNCION BANEAR USUARIO(Administrador)*****
+
+Se debe ingresar el id del usuario a banear, la funcion no retorna nada, por lo cual como pa que
+sea un boton o algo asi
+
+Como usar:
+
+/banear?id=4
+
+Se banea el usuario de id 4
+
+
+
+
+

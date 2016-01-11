@@ -25,4 +25,8 @@ public interface AdministradorFacade {
 
 	//ValidarGraffiti
 	public void validarGraffiti(Integer id);
+	
+	//BanearUsuario
+	public void banearUser(Integer id);
+	
 }

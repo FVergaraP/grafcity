@@ -36,6 +36,9 @@ public interface GraffitiFacade {
 	//Funcion para eliminar un graffiti por id
 	public void eliminarGraffiti(Integer id);
 	
+	//Funcion para obtener los mejores graffitis
+	public List<Graffiti> findGraffitisAvg(Integer cant);
+	
 	//De aqui pa abajo funciones varias de pruebas
 	public List<Graffiti> probandoQuery();
 	

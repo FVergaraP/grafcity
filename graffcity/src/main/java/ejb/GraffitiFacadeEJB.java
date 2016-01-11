@@ -1,5 +1,6 @@
 package ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -73,6 +74,23 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		q.setParameter("last", last);
 		List<Graffiti> graffities = q.getResultList();
 		return graffities;
+	}
+	
+	public List<Graffiti> findGraffitisAvg(Integer cant){
+		Query q = em.createNamedQuery("Graffiti.findByAvg");
+		
+		List<Graffiti> graffities = q.getResultList();
+		int contador = 0;
+		List <Graffiti> graffitiesFinales = new ArrayList<Graffiti>();
+		for (Graffiti Graffiti : graffities){
+			if (contador<cant){
+				graffitiesFinales.add(Graffiti);
+				contador++;
+			}
+			
+		}
+		
+		return graffitiesFinales;
 	}
 	
 	//De aqui para abajo probando funciones varias

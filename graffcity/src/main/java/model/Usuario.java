@@ -34,6 +34,9 @@ public class Usuario implements Serializable {
 	@Column(name="contrasena", nullable=false, length=20)
 	private String contrasena;
 	
+	@Column (name="baneado", nullable=false)
+	private boolean baneado;
+	
 	//@OneToMany(mappedBy="actor")
 	//private List<FilmActor> films;
 	
@@ -98,12 +101,21 @@ public class Usuario implements Serializable {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+	
 	public String getContrasena() {
 		return this.contrasena;
 	}
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
+	}
+	
+	public boolean getBaneado() {
+		return this.baneado;
+	}
+
+	public void setBaneado(boolean baneado) {
+		this.baneado = baneado;
 	}
 
 

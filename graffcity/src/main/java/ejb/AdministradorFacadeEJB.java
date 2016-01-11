@@ -43,5 +43,13 @@ public class AdministradorFacadeEJB extends AbstractFacade<Administrador> implem
 		
 	}
 	
+	//Funcion para banear a un usuario
+	
+	public void banearUser(Integer id){
+		Query q = em.createQuery("UPDATE Usuario u SET u.baneado =:baneado WHERE u.usuarioId = :usuarioId");
+		q.setParameter("baneado", true);
+		int updateCount = q.setParameter("usuarioId", id).executeUpdate();
+	}
+	
 }
 

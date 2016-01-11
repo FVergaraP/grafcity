@@ -106,12 +106,25 @@ public class GraffitiService {
        graffitiFacadeEJB.eliminarGraffiti(id);
     }	
 	
+	//GET PARA OBTENER TOP
+	//SE DEBE INGRESAR LA CANTIDAD, 10 si se quiere TOP10 o 5 si TOP5, etc
+	//FORMATO:  /top?cant=10
+	//ESTO DEVUELVE LOS 10 MEJORES
+	@GET
+	@Path("/top")
+    @Produces({"application/xml", "application/json"})
+    public List<Graffiti> mejoresGraf(
+    		@QueryParam("cant") Integer cant) {
+       return graffitiFacadeEJB.findGraffitisAvg(cant);
+    }	
+	
 	
 	//GET DE PRUEBA	
 	@GET
     @Path("FuncionoProcedimietno")
     @Produces({"application/xml", "application/json"})
-    public List<Graffiti> probandoooo() {
+    public List<Graffiti> probandoooo(
+    		) {
         graffitiFacadeEJB.llamarProcedimieno();
         List<Graffiti> graffities = null;
         return graffities;

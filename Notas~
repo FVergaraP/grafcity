@@ -2,3 +2,10 @@ NOTAS
 
 
 1- Apesar de ser obvio, no pueden haber dos nicks iguales, ojo que exista verificacion ya que de haber dos nicks iguales el metodo de busqueda de graffitis por el nick de autor tira error, ya que se maneja con un SIngleResult, y en ese caso devolveria mas de 1.
+
+
+2- OJO CON CAMBIOS, en usuario de linkfoto paso a ser linkfoto1 linkfoto2 etc...
+
+3-SI SE PUEDE, despues poder verificar el estado baneado al momento del login.
+
+

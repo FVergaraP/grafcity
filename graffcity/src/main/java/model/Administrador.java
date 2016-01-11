@@ -33,13 +33,13 @@ public class Administrador implements Serializable{
 	@Column(name="apellido_admin", nullable=false)
 	private String apellidoAdmin;
 	
-	@Column(name="nick_name_admin", nullable=false)
+	@Column(name="nickname_admin", nullable=false)
 	private String nicknameAdmin;
 	
 	@Column(name="correo_admin", nullable=false, length=50)
 	private String correoAdmin;
 	
-	@Column(name="password_admin", nullable=false, length=20)
+	@Column(name="contrasena_admin", nullable=false, length=20)
 	private String passwordAdmin;
 	
 	
