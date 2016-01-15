@@ -16,6 +16,7 @@ import facade.AdministradorFacade;
 import model.Administrador;
 import facade.GraffitiFacade;
 import model.Graffiti;
+import model.Usuario;
 
 
 @Stateless
@@ -49,6 +50,15 @@ public class AdministradorFacadeEJB extends AbstractFacade<Administrador> implem
 		Query q = em.createQuery("UPDATE Usuario u SET u.baneado =:baneado WHERE u.usuarioId = :usuarioId");
 		q.setParameter("baneado", true);
 		int updateCount = q.setParameter("usuarioId", id).executeUpdate();
+	}
+	
+	public List<Administrador> Login(Administrador admin){
+		Query q = em.createQuery("SELECT u FROM Administrador u WHERE u.nombreAdmin =:nombre AND u.passwordAdmin=:password AND u.apellidoAdmin=:apellido");
+		q.setParameter("nombre",admin.getNombreAdmin());
+		q.setParameter("apellido",admin.getApellidoAdmin());
+		q.setParameter("password",admin.getPasswordAdmin());
+		List<Administrador> adm = q.getResultList();
+		return adm;
 	}
 	
 }

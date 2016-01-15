@@ -1,0 +1,22 @@
+USO de funcion LOGIN USUARIO
+-----------------------------
+Es un POST en la url http://localhost:8080/graffcity/usuarios/login
+que debe tener un JSON con los parametros {"nickname":"aquielnickname", "contrasena":"aquilacontraseña"}
+El usuario está logeado si retorna un JSON con los datos del usuario
+El usuario no está logeado si retorna un JSON vacío.
+
+-------------------------------------------------------------------------
+Uso de funcion LOGIN administrador
+-----------------------------------
+Es un POST en la url http://localhost:8080/graffcity/administrador/login
+que debe tener un JSON con los parametros {"apellidoAdmin":"aquielapellido","nombreAdmin":"aquielnombre","passwordAdmin":"aquilapass"}
+El administrador está logeado si retorna un JSON con los datos del administrador
+El administrador no está logeado si retorna un JSON vacío.
+
+--------------------------------------
+Uso función eliminar usuario
+-----------------------------
+Es un método DELETE en la url http://localhost:8080/graffcity/usuarios/eliminar/jperez
+
+REEMPLAZAR JPEREZ POR EL NICKNAME DEL USUARIO A ELIMINAR, PARA VERIFICAR SI ESTÁ O NO EN 
+LA BASE DE DATOS BASTA USAR EL METODO PARA VER SI EXISTE UN USUARIO.

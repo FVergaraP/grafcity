@@ -45,6 +45,14 @@ public class UsuarioService {
     public void create(Usuario entity) {
         usuarioFacadeEJB.create(entity);
     }
+	
+	@DELETE
+	@Path("eliminar/{n}")
+    @Consumes({"application/xml", "application/json"})
+    public void borrar(
+    		@PathParam("n") String nickname) {
+		usuarioFacadeEJB.borrar(nickname);
+    }
 
     @PUT //editar
     @Path("{id}")
@@ -60,13 +68,12 @@ public class UsuarioService {
 	public void removeId(@PathParam("id") Integer id){
 		usuarioFacadeEJB.removeId(id);
 	}*/
-    @GET
-    @Path("login/{usuario}/{password}")
+    @POST
+    @Path("login")
     @Produces({"application/xml", "application/json"})
-    public List<Usuario> muestraLogin(
-    		@PathParam("usuario") String usuario, 
-    		@PathParam("password") String password){
-    	return usuarioFacadeEJB.muestraLogin(usuario, password);
+    @Consumes({"application/xml", "application/json"}) 
+    public List<Usuario> muestraLogin(Usuario user){
+    	return usuarioFacadeEJB.muestraLogin(user);
     }
     @GET
     @Path("ex.us/{nickname}")

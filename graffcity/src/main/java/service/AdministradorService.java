@@ -17,6 +17,7 @@ import com.mysql.jdbc.Statement;
 
 import facade.AdministradorFacade;
 import model.Administrador;
+import model.Usuario;
 
 
 
@@ -26,7 +27,7 @@ public class AdministradorService {
 	@EJB 
 	AdministradorFacade administradorFacadeEJB;
 	
-	Logger logger = Logger.getLogger(CiudadService.class.getName());
+	Logger logger = Logger.getLogger(AdministradorService.class.getName());
 	
 		
 	@GET
@@ -74,6 +75,14 @@ public class AdministradorService {
     public void edit(@PathParam("id") Integer id, Administrador entity) {
     	entity.setAdminId(id.intValue());
     	administradorFacadeEJB.edit(entity);
+    }
+    //Se logea con nombre, apellido y pass.
+    @POST
+    @Path("login")
+    @Produces({"application/xml", "application/json"})
+    @Consumes({"application/xml", "application/json"}) 
+    public List<Administrador> muestraLogin(Administrador admin){
+    	return administradorFacadeEJB.Login(admin);
     }
 
 }

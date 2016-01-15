@@ -28,10 +28,10 @@ public class UsuarioFacadeEJB extends AbstractFacade<Usuario> implements Usuario
 	
 	//Funciones extras
 	
-	public List<Usuario> muestraLogin(String usuario, String clave){
+	public List<Usuario> muestraLogin(Usuario user){
 		Query q = em.createNamedQuery("VerificaUsuario", Usuario.class);
-		q.setParameter("usuario", usuario);
-		q.setParameter("password", clave);
+		q.setParameter("usuario", user.getNickname());
+		q.setParameter("password", user.getContrasena());
 		List<Usuario> usuarios = q.getResultList();
 		return usuarios;
 	}
@@ -58,23 +58,10 @@ public class UsuarioFacadeEJB extends AbstractFacade<Usuario> implements Usuario
 		
 		return id;
 	}
-	/*
-	public boolean isAcountExists(String usuario, String password){
-    	Query q = em.createQuery("SELECT nick_name FROM usuarios WHERE nick_name="+usuario+" AND contrasena="+password+"");
-        if(q.equals(usuario))
-        	return true;
-        else
-        	return false;
-    }
-    
-    //Metodo para consultar si el email recibido ya esta registrado
-    public boolean isEmailRegistered(String email) {
-    	Query q = em.createQuery("SELECT email FROM email="+email+"");
-        if(q.equals(email))
-        	return true;
-        else
-        	return false;
-    }
-*/
+	public void borrar(String nickname){
+		Query q = em.createQuery("DELETE FROM Usuario u WHERE u.nickname =:nickname");
+		q.setParameter("nickname", nickname);
+		q.executeUpdate();
+	}
 
 }

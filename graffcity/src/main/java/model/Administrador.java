@@ -21,6 +21,8 @@ import java.util.List;
 
 public class Administrador implements Serializable{
 	
+
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -45,6 +47,14 @@ public class Administrador implements Serializable{
 	
 	
 	public Administrador() {
+	}
+	
+	public String getNicknameAdmin() {
+		return nicknameAdmin;
+	}
+
+	public void setNicknameAdmin(String nicknameAdmin) {
+		this.nicknameAdmin = nicknameAdmin;
 	}
 	
 	public int getAdminId(){
