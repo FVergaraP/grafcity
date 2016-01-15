@@ -85,7 +85,7 @@ public class Graffiti implements Serializable {
 	private boolean revision;
 	
 	@Column(name="avg_calif", nullable=false)
-	private double promedio;
+	private int promedio;
 	
 	
 	
@@ -218,11 +218,11 @@ public class Graffiti implements Serializable {
 		this.revision = revision;
 	}
 	
-	public double getPromedio(){
+	public int getPromedio(){
 		return this.promedio;
 	}
 	
-	public void setPromedio(double promedio){
+	public void setPromedio(int promedio){
 		this.promedio = promedio;
 	}
 	
