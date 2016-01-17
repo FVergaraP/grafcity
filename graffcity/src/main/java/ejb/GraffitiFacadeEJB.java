@@ -63,6 +63,7 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		
 		Query q = em.createNamedQuery("Graffiti.findByUserId", Graffiti.class);
 		q.setParameter("autorId", id);
+		q.setParameter("revision", true);
 		List<Graffiti> graffities = q.getResultList();
 		return graffities;
 	}
@@ -72,13 +73,14 @@ public class GraffitiFacadeEJB extends AbstractFacade<Graffiti> implements Graff
 		Query q = em.createNamedQuery("Graffiti.findRango", Graffiti.class);
 		q.setParameter("first", first);
 		q.setParameter("last", last);
+		q.setParameter("revision", true);
 		List<Graffiti> graffities = q.getResultList();
 		return graffities;
 	}
 	
 	public List<Graffiti> findGraffitisAvg(Integer cant){
 		Query q = em.createNamedQuery("Graffiti.findByAvg");
-		
+		q.setParameter("revision", true);
 		List<Graffiti> graffities = q.getResultList();
 		int contador = 0;
 		List <Graffiti> graffitiesFinales = new ArrayList<Graffiti>();
