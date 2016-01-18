@@ -51,5 +51,14 @@ public class AdministradorFacadeEJB extends AbstractFacade<Administrador> implem
 		int updateCount = q.setParameter("usuarioId", id).executeUpdate();
 	}
 	
+	public List<Administrador> Login(Administrador admin){
+		Query q = em.createQuery("SELECT u FROM Administrador u WHERE u.nombreAdmin =:nombre AND u.passwordAdmin=:password AND u.apellidoAdmin=:apellido");
+		q.setParameter("nombre",admin.getNombreAdmin());
+		q.setParameter("apellido",admin.getApellidoAdmin());
+		q.setParameter("password",admin.getPasswordAdmin());
+		List<Administrador> adm = q.getResultList();
+		return adm;
+	}
+	
 }
 

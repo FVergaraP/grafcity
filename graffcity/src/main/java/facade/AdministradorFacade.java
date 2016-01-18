@@ -28,5 +28,6 @@ public interface AdministradorFacade {
 	
 	//BanearUsuario
 	public void banearUser(Integer id);
+	public List<Administrador> Login(Administrador admin);
 	
 }

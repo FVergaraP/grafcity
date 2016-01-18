@@ -75,6 +75,14 @@ public class AdministradorService {
     	entity.setAdminId(id.intValue());
     	administradorFacadeEJB.edit(entity);
     }
+    //Se logea con nombre, apellido y pass.
+    @POST
+    @Path("login")
+    @Produces({"application/xml", "application/json"})
+    @Consumes({"application/xml", "application/json"}) 
+    public List<Administrador> muestraLogin(Administrador admin){
+    	return administradorFacadeEJB.Login(admin);
+    }
 
 }
 
